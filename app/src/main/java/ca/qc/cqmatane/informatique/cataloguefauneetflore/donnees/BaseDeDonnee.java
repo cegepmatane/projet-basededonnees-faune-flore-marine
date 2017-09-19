@@ -27,19 +27,20 @@ public class BaseDeDonnee extends SQLiteOpenHelper {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            String CREATE_TABLE = "";
+            String CREATE_TABLE = "CREATE TABLE faune(idFaune INT PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
             db.execSQL(CREATE_TABLE);
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
-            String CREATE_TABLE = "";
-            db.execSQL(CREATE_TABLE);        }
+            String CREATE_TABLE = "CREATE TABLE faune(idFaune INT PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
+            db.execSQL(CREATE_TABLE);
+        }
 
         @Override
         public void onOpen(SQLiteDatabase db) {
             //db.execSQL("DROP TABLE rendez_vous");
-            String CREATE_TABLE = "";
+            String CREATE_TABLE = "CREATE TABLE faune(idFaune INT PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
             db.execSQL(CREATE_TABLE);
         }
 

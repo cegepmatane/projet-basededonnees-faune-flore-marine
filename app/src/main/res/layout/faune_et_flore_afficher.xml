@@ -7,6 +7,7 @@
     tools:context="ca.qc.cqmatane.informatique.cataloguefauneetflore.VueFauneEtFloreAfficher">
 
     <TabHost
+        android:id="@+id/tab_host_faune_et_flore"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
