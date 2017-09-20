@@ -15,6 +15,12 @@ public class Faune extends Espece {
         this.population = population;
     }
 
+    public Faune(int id, String nom, String nomScientifique, String lieu, String type, int population) {
+        super(id,nom, nomScientifique, lieu);
+        this.type = type;
+        this.population = population;
+    }
+
     public String getType() {
         return type;
     }

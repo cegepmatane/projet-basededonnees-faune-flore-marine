@@ -10,4 +10,8 @@ public class Flore extends  Espece{
         super(nom, nomScientifique, lieu);
     }
 
+    public Flore(int id, String nom, String nomScientifique, String lieu) {
+        super(id, nom, nomScientifique, lieu);
+    }
+
 }

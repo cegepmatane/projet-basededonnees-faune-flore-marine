@@ -5,15 +5,22 @@ package ca.qc.cqmatane.informatique.cataloguefauneetflore.modele;
  */
 
 public class Espece {
+    protected int id;
     protected String nom;
     protected String nomScientifique;
     protected String lieu;
-    protected int id;
 
     public Espece(String nom, String nomScientifique, String lieu) {
         this.nom = nom;
         this.nomScientifique = nomScientifique;
         this.lieu = lieu;
+    }
+
+    public Espece(int id,String nom, String nomScientifique, String lieu) {
+        this.nom = nom;
+        this.nomScientifique = nomScientifique;
+        this.lieu = lieu;
+        this.id = id;
     }
 
     public String getNom() {
