@@ -8,6 +8,7 @@ public class Espece {
     protected String nom;
     protected String nomScientifique;
     protected String lieu;
+    protected int id;
 
     public Espece(String nom, String nomScientifique, String lieu) {
         this.nom = nom;

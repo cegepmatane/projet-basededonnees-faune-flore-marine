@@ -20,6 +20,11 @@ public class FauneDAO {
         accesseurBaseDeDonnee = BaseDeDonnee.getInstance();
     }
 
+    public void listerTouteLaFaune() {
+        String SQL_SELECT = "SELECT * FROM faune";
+
+    }
+
     public void modifierFaune(Faune faune) {
         String SQL_UPDATE = "UPDATE faune set " +
                 "nom=" + faune.getNom() + ", " +
