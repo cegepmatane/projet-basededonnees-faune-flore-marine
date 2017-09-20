@@ -5,8 +5,9 @@ package ca.qc.cqmatane.informatique.cataloguefauneetflore.modele;
  */
 
 public class Flore extends  Espece{
-    
+
     public Flore(String nom, String nomScientifique, String lieu) {
         super(nom, nomScientifique, lieu);
     }
+
 }

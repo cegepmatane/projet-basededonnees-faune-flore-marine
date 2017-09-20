@@ -14,4 +14,20 @@ public class Faune extends Espece {
         this.type = type;
         this.population = population;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(int population) {
+        this.population = population;
+    }
 }
