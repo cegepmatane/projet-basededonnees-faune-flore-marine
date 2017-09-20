@@ -17,11 +17,10 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
 
         creerTab();
 
+
     }
 
     private void creerTab() {
-        affichage_liste_espece_faune = (ListView) findViewById(R.id.affichage_liste_espece_faune);
-
         tab_host_faune_et_flore = (TabHost) findViewById(R.id.tab_host_faune_et_flore);
         tab_host_faune_et_flore.setup();
 
@@ -34,5 +33,9 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
         tabSpecFlore.setContent(R.id.affichage_liste_espece_flore);
         tabSpecFlore.setIndicator("Flore");
         tab_host_faune_et_flore.addTab(tabSpecFlore);
+    }
+
+    private void creerListView() {
+        affichage_liste_espece_faune = (ListView) findViewById(R.id.affichage_liste_espece_faune);
     }
 }
