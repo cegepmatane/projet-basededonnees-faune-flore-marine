@@ -32,7 +32,6 @@ public class FauneDAO {
         String SQL_SELECT = "SELECT * FROM faune";
         Cursor curseurFaune =accesseurBaseDeDonnee.getWritableDatabase().rawQuery(SQL_SELECT, null);
         listeFaune.clear();
-        Faune faune;
 
         int indexId = curseurFaune.getColumnIndex("id");
         int indexNom = curseurFaune.getColumnIndex("nom");

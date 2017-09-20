@@ -1,5 +1,10 @@
 package ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees;
 
+import android.database.Cursor;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Flore;
 
 /**
@@ -11,6 +16,8 @@ public class FloreDAO {
     private static FloreDAO instance;
     private BaseDeDonnee accesseurBaseDeDonnee;
 
+    private final List<Flore> listeFlore = new ArrayList<Flore>();
+
     public static FloreDAO getInstance() {
         if(instance == null)instance = new FloreDAO();
         return instance;
@@ -18,6 +25,26 @@ public class FloreDAO {
 
     private FloreDAO() {
         accesseurBaseDeDonnee = BaseDeDonnee.getInstance();
+    }
+
+    public List<Flore> listerTouteLaFlore() {
+        String SQL_SELECT = "SELECT * FROM flore";
+        Cursor curseurFlore =accesseurBaseDeDonnee.getWritableDatabase().rawQuery(SQL_SELECT, null);
+        listeFlore.clear();
+
+        int indexId = curseurFlore.getColumnIndex("id");
+        int indexNom = curseurFlore.getColumnIndex("nom");
+        int indexNomScientifique = curseurFlore.getColumnIndex("nomScientifique");
+        int indexLieu = curseurFlore.getColumnIndex("lieu");
+
+        for(curseurFlore.moveToFirst(); curseurFlore.isAfterLast(); curseurFlore.moveToNext()) {
+            int id = curseurFlore.getInt(indexId);
+            String nom = curseurFlore.getString(indexNom);
+            String nomScientifique = curseurFlore.getString(indexNomScientifique);
+            String lieu = curseurFlore.getString(indexLieu);
+            listeFlore.add(new Flore(id,nom,nomScientifique,lieu));
+        }
+        return listeFlore;
     }
 
     public void modifierFlore(Flore flore) {
