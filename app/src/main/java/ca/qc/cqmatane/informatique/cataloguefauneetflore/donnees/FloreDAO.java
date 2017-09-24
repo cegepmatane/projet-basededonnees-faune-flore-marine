@@ -1,6 +1,7 @@
 package ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees;
 
 import android.database.Cursor;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;

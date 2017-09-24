@@ -39,7 +39,7 @@ public class Faune extends Espece {
         this.population = population;
     }
 
-    public HashMap<String, String> exporterHashmap() {
+    public HashMap<String, String> exporterHashMap() {
         HashMap<String, String> faune = super.exporterHashMap();
 
         faune.put("Type", type);

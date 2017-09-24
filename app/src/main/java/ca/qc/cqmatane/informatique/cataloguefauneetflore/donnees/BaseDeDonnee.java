@@ -27,26 +27,27 @@ public class BaseDeDonnee extends SQLiteOpenHelper {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS faune(idFaune INT PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
+            String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS faune(idFaune INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
             db.execSQL(CREATE_TABLE);
-            CREATE_TABLE = "CREATE TABLE IF NOT EXISTS flore(idFlore INT PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT)";
+            CREATE_TABLE = "CREATE TABLE IF NOT EXISTS flore(idFlore INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT)";
             db.execSQL(CREATE_TABLE);
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
-            String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS faune(idFaune INT PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
+            String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS faune(idFaune INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
             db.execSQL(CREATE_TABLE);
-            CREATE_TABLE = "CREATE TABLE IF NOT EXISTS flore(idFlore INT PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT)";
+            CREATE_TABLE = "CREATE TABLE IF NOT EXISTS flore(idFlore INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT)";
             db.execSQL(CREATE_TABLE);
         }
 
         @Override
         public void onOpen(SQLiteDatabase db) {
-            db.execSQL("drop table faune");
-            String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS faune(idFaune INT PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
+            db.execSQL("DROP TABLE IF EXISTS faune");
+            String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS faune(idFaune INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
             db.execSQL(CREATE_TABLE);
-            CREATE_TABLE = "CREATE TABLE IF NOT EXISTS flore(idFlore INT PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT)";
+            db.execSQL("DROP TABLE IF EXISTS flore");
+            CREATE_TABLE = "CREATE TABLE IF NOT EXISTS flore(idFlore INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT)";
             db.execSQL(CREATE_TABLE);
 
             db.execSQL("INSERT INTO faune VALUES (null, 'Poisson', 'Poisson', 'Fleuve Saint Laurent', 'Poisson', 1552)");

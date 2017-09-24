@@ -6,4 +6,18 @@
     android:layout_height="match_parent"
     tools:context="ca.qc.cqmatane.informatique.cataloguefauneetflore.VueFauneModifier">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="322dp"
+        android:layout_height="37dp"
+        android:text="Faune"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.041" />
 </android.support.constraint.ConstraintLayout>
