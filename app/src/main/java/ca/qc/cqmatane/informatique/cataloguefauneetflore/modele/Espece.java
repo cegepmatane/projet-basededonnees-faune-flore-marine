@@ -1,5 +1,7 @@
 package ca.qc.cqmatane.informatique.cataloguefauneetflore.modele;
 
+import java.util.HashMap;
+
 /**
  * Created by Maxime on 20/09/2017.
  */
@@ -45,5 +47,14 @@ public class Espece {
 
     public void setLieu(String lieu) {
         this.lieu = lieu;
+    }
+
+    public HashMap<String, String> exporterHashMap(){
+        HashMap<String,String> faune = new HashMap<>();
+        faune.put("Id", id+"");
+        faune.put("Nom", nom);
+        faune.put("NomScientifique", nomScientifique);
+        faune.put("Lieu", lieu);
+        return faune;
     }
 }

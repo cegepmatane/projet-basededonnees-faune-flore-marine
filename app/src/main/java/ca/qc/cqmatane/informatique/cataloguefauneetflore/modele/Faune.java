@@ -1,5 +1,7 @@
 package ca.qc.cqmatane.informatique.cataloguefauneetflore.modele;
 
+import java.util.HashMap;
+
 /**
  * Created by Maxime on 20/09/2017.
  */
@@ -35,5 +37,14 @@ public class Faune extends Espece {
 
     public void setPopulation(int population) {
         this.population = population;
+    }
+
+    public HashMap<String, String> exporterHashmap() {
+        HashMap<String, String> faune = super.exporterHashMap();
+
+        faune.put("Type", type);
+        faune.put("Population", population + "");
+
+        return faune;
     }
 }

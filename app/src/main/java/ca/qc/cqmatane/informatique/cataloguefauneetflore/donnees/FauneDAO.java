@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Faune;
@@ -30,17 +31,17 @@ public class FauneDAO {
 
     public List<Faune> listerTouteLaFaune() {
         String SQL_SELECT = "SELECT * FROM faune";
-        Cursor curseurFaune =accesseurBaseDeDonnee.getWritableDatabase().rawQuery(SQL_SELECT, null);
+        Cursor curseurFaune = accesseurBaseDeDonnee.getWritableDatabase().rawQuery(SQL_SELECT, null);
         listeFaune.clear();
-
-        int indexId = curseurFaune.getColumnIndex("id");
+        int indexId = curseurFaune.getColumnIndex("idFaune");
         int indexNom = curseurFaune.getColumnIndex("nom");
         int indexNomScientifique = curseurFaune.getColumnIndex("nomScientifique");
         int indexLieu = curseurFaune.getColumnIndex("lieu");
         int indexType = curseurFaune.getColumnIndex("type");
         int indexPopulation = curseurFaune.getColumnIndex("population");
 
-        for(curseurFaune.moveToFirst(); curseurFaune.isAfterLast(); curseurFaune.moveToNext()) {
+        System.out.println(curseurFaune.moveToFirst());
+        for(curseurFaune.moveToFirst(); !curseurFaune.isAfterLast(); curseurFaune.moveToNext()) {
             int id = curseurFaune.getInt(indexId);
             String nom = curseurFaune.getString(indexNom);
             String nomScientifique = curseurFaune.getString(indexNomScientifique);
@@ -61,4 +62,13 @@ public class FauneDAO {
                 "population=" + faune.getPopulation();
         accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
     }
+    public List<HashMap<String, String>> listerLaFauneEnHashmap() {
+        listerTouteLaFaune();
+        List<HashMap<String, String>> listeFauneHashmap = new ArrayList<>();
+        for (Faune faune : this.listeFaune) {
+            listeFauneHashmap.add(faune.exporterHashMap());
+        }
+        return listeFauneHashmap;
+    }
+
 }

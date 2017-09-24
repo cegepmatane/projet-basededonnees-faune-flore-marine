@@ -3,8 +3,10 @@ package ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees;
 import android.database.Cursor;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Faune;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Flore;
 
 /**
@@ -32,12 +34,12 @@ public class FloreDAO {
         Cursor curseurFlore =accesseurBaseDeDonnee.getWritableDatabase().rawQuery(SQL_SELECT, null);
         listeFlore.clear();
 
-        int indexId = curseurFlore.getColumnIndex("id");
+        int indexId = curseurFlore.getColumnIndex("idFlore");
         int indexNom = curseurFlore.getColumnIndex("nom");
         int indexNomScientifique = curseurFlore.getColumnIndex("nomScientifique");
         int indexLieu = curseurFlore.getColumnIndex("lieu");
 
-        for(curseurFlore.moveToFirst(); curseurFlore.isAfterLast(); curseurFlore.moveToNext()) {
+        for(curseurFlore.moveToFirst(); !curseurFlore.isAfterLast(); curseurFlore.moveToNext()) {
             int id = curseurFlore.getInt(indexId);
             String nom = curseurFlore.getString(indexNom);
             String nomScientifique = curseurFlore.getString(indexNomScientifique);
@@ -53,6 +55,15 @@ public class FloreDAO {
                 "nomScientifique=" + flore.getNomScientifique() + ", " +
                 "lieu=" + flore.getLieu();
         accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
+    }
+
+    public List<HashMap<String, String>> listerLaFauneEnHashmap() {
+        listerTouteLaFlore();
+        List<HashMap<String, String>> listeFauneHashmap = new ArrayList<>();
+        for (Flore flore : this.listeFlore) {
+            listeFauneHashmap.add(flore.exporterHashMap());
+        }
+        return listeFauneHashmap;
     }
 
 }

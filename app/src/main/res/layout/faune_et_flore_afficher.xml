@@ -32,10 +32,11 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <ExpandableListView
+                    <ListView
                         android:id="@+id/affichage_liste_espece_faune"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -44,10 +45,11 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <ExpandableListView
+                    <ListView
                         android:id="@+id/affichage_liste_espece_flore"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
+
                 </LinearLayout>
 
             </FrameLayout>
