@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VueFauneEtFloreModifier"></activity>
+        <activity android:name=".VueFauneModifier" />
+        <activity android:name=".VueFloreModifier"></activity>
     </application>
 
 </manifest>
