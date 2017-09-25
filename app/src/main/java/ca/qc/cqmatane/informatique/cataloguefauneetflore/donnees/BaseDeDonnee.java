@@ -43,24 +43,16 @@ public class BaseDeDonnee extends SQLiteOpenHelper {
 
         @Override
         public void onOpen(SQLiteDatabase db) {
-            db.execSQL("DROP TABLE IF EXISTS faune");
+//            db.execSQL("DROP TABLE faune");
+//            db.execSQL("DROP TABLE flore");
             String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS faune(idFaune INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
             db.execSQL(CREATE_TABLE);
-            db.execSQL("DROP TABLE IF EXISTS flore");
             CREATE_TABLE = "CREATE TABLE IF NOT EXISTS flore(idFlore INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT)";
             db.execSQL(CREATE_TABLE);
 
-            db.execSQL("INSERT INTO faune VALUES (null, 'Poisson', 'Poisson', 'Fleuve Saint Laurent', 'Poisson', 1552)");
-            db.execSQL("INSERT INTO faune VALUES (null, 'Poisson', 'Poisson', 'Fleuve Saint Laurent', 'Poisson', 1552)");
-            db.execSQL("INSERT INTO faune VALUES (null, 'Poisson', 'Poisson', 'Fleuve Saint Laurent', 'Poisson', 1552)");
-            db.execSQL("INSERT INTO faune VALUES (null, 'Poisson', 'Poisson', 'Fleuve Saint Laurent', 'Poisson', 1552)");
-            db.execSQL("INSERT INTO faune VALUES (null, 'Poisson', 'Poisson', 'Fleuve Saint Laurent', 'Poisson', 1552)");
-
-            db.execSQL("INSERT INTO flore VALUES (null, 'Algue', 'Algue Marine', 'Fleuve Saint Laurent')");
-            db.execSQL("INSERT INTO flore VALUES (null, 'Algue', 'Algue Marine', 'Fleuve Saint Laurent')");
-            db.execSQL("INSERT INTO flore VALUES (null, 'Algue', 'Algue Marine', 'Fleuve Saint Laurent')");
-            db.execSQL("INSERT INTO flore VALUES (null, 'Algue', 'Algue Marine', 'Fleuve Saint Laurent')");
-            db.execSQL("INSERT INTO flore VALUES (null, 'Algue', 'Algue Marine', 'Fleuve Saint Laurent')");
+//            db.execSQL("INSERT INTO faune VALUES (null, 'Poisson', 'Poisson', 'Fleuve Saint Laurent', 'Poisson', 1552)");
+//
+//            db.execSQL("INSERT INTO flore VALUES (null, 'Algue', 'Algue Marine', 'Fleuve Saint Laurent')");
 
 
         }

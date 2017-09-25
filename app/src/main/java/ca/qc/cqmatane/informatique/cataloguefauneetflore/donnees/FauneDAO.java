@@ -55,10 +55,10 @@ public class FauneDAO {
 
     public void modifierFaune(Faune faune) {
         String SQL_UPDATE = "UPDATE faune set " +
-                "nom=" + faune.getNom() + ", " +
-                "nomScientifique=" + faune.getNomScientifique() + ", " +
-                "lieu=" + faune.getLieu() + ", " +
-                "type=" + faune.getType() + ", " +
+                "nom = '" + faune.getNom() + "', " +
+                "nomScientifique = '" + faune.getNomScientifique() + "', " +
+                "lieu = '" + faune.getLieu() + "', " +
+                "type = '" + faune.getType() + "', " +
                 "population=" + faune.getPopulation();
         accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
     }
@@ -71,4 +71,12 @@ public class FauneDAO {
         return listeFauneHashmap;
     }
 
+    public Faune trouverFaune(int id) {
+        for(Faune faune : listeFaune){
+            if(faune.getId() == id){
+                return faune;
+            }
+        }
+        return null;
+    }
 }

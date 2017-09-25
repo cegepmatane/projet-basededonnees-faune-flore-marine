@@ -17,9 +17,6 @@ import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FauneDAO;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FloreDAO;
 
 public class VueFauneEtFloreAfficher extends AppCompatActivity {
-    public static final int ACTIVITE_MODIFIER_FLORE = 1;
-    public static final int ACTIVITE_MODIFIER_FAUNE = 2;
-
     private TabHost tab_host_faune_et_flore;
     private ListView affichage_liste_espece_faune;
     private ListView affichage_liste_espece_flore;
@@ -46,7 +43,7 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
 
                 Intent intentionNaviguerModifierFlore = new Intent(VueFauneEtFloreAfficher.this, VueFloreModifier.class);
                 intentionNaviguerModifierFlore.putExtra("Id", flore.get("Id"));
-                startActivityForResult(intentionNaviguerModifierFlore, ACTIVITE_MODIFIER_FLORE);
+                startActivity(intentionNaviguerModifierFlore);
             }
         });
 
@@ -58,8 +55,8 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
                 HashMap<String, String> faune = (HashMap<String, String>) vueListeFaune.getItemAtPosition((int) positionItem);
 
                 Intent intentionNaviguerModifierFaune = new Intent(VueFauneEtFloreAfficher.this, VueFauneModifier.class);
-                intentionNaviguerModifierFaune.putExtra("idFaune", faune.get("idFaune"));
-                startActivityForResult(intentionNaviguerModifierFaune, ACTIVITE_MODIFIER_FAUNE);
+                intentionNaviguerModifierFaune.putExtra("Id", faune.get("Id"));
+                startActivity(intentionNaviguerModifierFaune);
             }
         });
     }
@@ -107,7 +104,9 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    protected void onStart() {
+        super.onStart();
+        creerListViewFlore();
+        creerListViewFaune();
     }
 }

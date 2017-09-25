@@ -57,4 +57,10 @@ public class Espece {
         faune.put("Lieu", lieu);
         return faune;
     }
+
+    public int getId() {
+        return id;
+    }
+
+
 }

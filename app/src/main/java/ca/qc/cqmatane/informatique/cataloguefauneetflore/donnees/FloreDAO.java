@@ -52,9 +52,9 @@ public class FloreDAO {
 
     public void modifierFlore(Flore flore) {
         String SQL_UPDATE = "UPDATE flore set " +
-                "nom=" + flore.getNom() + ", " +
-                "nomScientifique=" + flore.getNomScientifique() + ", " +
-                "lieu=" + flore.getLieu();
+                "nom = '" + flore.getNom() + "', " +
+                "nomScientifique = '" + flore.getNomScientifique() + "', " +
+                "lieu = '" + flore.getLieu()+"'";
         accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
     }
 
@@ -67,4 +67,12 @@ public class FloreDAO {
         return listeFauneHashmap;
     }
 
+    public Flore trouverFlore(int id) {
+        for(Flore flore: listeFlore){
+            if(flore.getId() == id){
+                return flore;
+            }
+        }
+        return null;
+    }
 }
