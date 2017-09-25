@@ -54,7 +54,8 @@ public class FloreDAO {
         String SQL_UPDATE = "UPDATE flore set " +
                 "nom = '" + flore.getNom() + "', " +
                 "nomScientifique = '" + flore.getNomScientifique() + "', " +
-                "lieu = '" + flore.getLieu()+"'";
+                "lieu = '" + flore.getLieu()+"'" +
+                " WHERE idFlore = " + flore.getId();;
         accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
     }
 

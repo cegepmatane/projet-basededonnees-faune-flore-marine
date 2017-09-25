@@ -59,7 +59,8 @@ public class FauneDAO {
                 "nomScientifique = '" + faune.getNomScientifique() + "', " +
                 "lieu = '" + faune.getLieu() + "', " +
                 "type = '" + faune.getType() + "', " +
-                "population=" + faune.getPopulation();
+                "population=" + faune.getPopulation() +
+                " WHERE idFaune = " + faune.getId();
         accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
     }
     public List<HashMap<String, String>> listerLaFauneEnHashmap() {
