@@ -68,5 +68,13 @@
             android:text="Modifier"
             android:onClick="actionModifierFaune"/>
 
+        <Button
+            android:id="@+id/action_supprimer_faune"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Supprimer"
+            android:onClick="actionSupprimerFaune"/>
+
     </LinearLayout>
+
 </LinearLayout>

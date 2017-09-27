@@ -59,6 +59,13 @@ public class FloreDAO {
         accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
     }
 
+    public void supprimerFlore(Flore flore)
+    {
+        String SQL_UPDATE = "DELETE FROM flore WHERE idFlore = " + flore.getId();
+
+        accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
+    }
+
     public List<HashMap<String, String>> listerLaFauneEnHashmap() {
         listerTouteLaFlore();
         List<HashMap<String, String>> listeFauneHashmap = new ArrayList<>();

@@ -45,4 +45,10 @@ public class VueFloreModifier extends AppCompatActivity {
         accesseurFlore.modifierFlore(flore);
         finish();
     }
+
+    public void actionSupprimerFlore(View vue)
+    {
+        accesseurFlore.supprimerFlore(flore);
+        finish();
+    }
 }

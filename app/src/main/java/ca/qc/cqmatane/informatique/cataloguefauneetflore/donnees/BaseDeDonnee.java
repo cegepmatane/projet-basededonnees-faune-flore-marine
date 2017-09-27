@@ -50,9 +50,9 @@ public class BaseDeDonnee extends SQLiteOpenHelper {
         CREATE_TABLE = "CREATE TABLE IF NOT EXISTS flore(idFlore INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT)";
         db.execSQL(CREATE_TABLE);
 
-//        db.execSQL("INSERT INTO faune VALUES (null, 'Poisson', 'Poisson', 'Fleuve Saint Laurent', 'Poisson', 1552)");
-//
-//        db.execSQL("INSERT INTO flore VALUES (null, 'Algue', 'Algue Marine', 'Fleuve Saint Laurent')");
+        //db.execSQL("INSERT INTO faune VALUES (null, 'Poisson', 'Poisson', 'Fleuve Saint Laurent', 'Poisson', 1552)");
+
+        //db.execSQL("INSERT INTO flore VALUES (null, 'Algue', 'Algue Marine', 'Fleuve Saint Laurent')");
 
 
     }

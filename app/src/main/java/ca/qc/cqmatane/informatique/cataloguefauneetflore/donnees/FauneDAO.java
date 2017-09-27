@@ -63,6 +63,13 @@ public class FauneDAO {
                 " WHERE idFaune = " + faune.getId();
         accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
     }
+
+    public void supprimerFaune(Faune faune)
+    {
+        String SQL_UPDATE = "DELETE FROM faune WHERE idFaune = " + faune.getId();
+
+        accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
+    }
     public List<HashMap<String, String>> listerLaFauneEnHashmap() {
         listerTouteLaFaune();
         List<HashMap<String, String>> listeFauneHashmap = new ArrayList<>();

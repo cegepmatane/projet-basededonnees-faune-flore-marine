@@ -52,4 +52,10 @@ public class VueFauneModifier extends AppCompatActivity {
         accesseurFaune.modifierFaune(faune);
         finish();
     }
+
+    public void actionSupprimerFaune(View vue)
+    {
+        accesseurFaune.supprimerFaune(faune);
+        finish();
+    }
 }

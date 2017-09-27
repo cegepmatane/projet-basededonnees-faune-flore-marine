@@ -52,5 +52,12 @@
             android:text="Modifier"
             android:onClick="actionModifierFlore"/>
 
+        <Button
+            android:id="@+id/action_supprimer_flore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="actionSupprimerFlore"
+            android:text="Supprimer" />
+
     </LinearLayout>
 </LinearLayout>
