@@ -37,6 +37,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dip"
+                        android:layout_weight="1"
+                        android:gravity="center|bottom"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/action_ajouter_flore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="actionAjouterUneFlore"
+                            android:text="Ajouter" />
+
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -50,6 +66,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:gravity="center|bottom"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/action_ajouter_faune"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="actionAjouterUneFaune"
+                        android:text="Ajouter" />
+
+                    </LinearLayout>
                 </LinearLayout>
 
             </FrameLayout>

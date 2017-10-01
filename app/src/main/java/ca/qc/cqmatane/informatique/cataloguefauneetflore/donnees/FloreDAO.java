@@ -50,6 +50,12 @@ public class FloreDAO {
         return listeFlore;
     }
 
+    public void ajouterFlore(Flore flore) {
+        String SQL_UPDATE = "INSERT INTO flore (nom, nomScientifique, lieu) VALUES ('" + flore.getNom() + "','" + flore.getNomScientifique() + "','" + flore.getLieu() + "')";
+        accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
+    }
+
+
     public void modifierFlore(Flore flore) {
         String SQL_UPDATE = "UPDATE flore set " +
                 "nom = '" + flore.getNom() + "', " +

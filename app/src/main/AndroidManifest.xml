@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".VueFauneModifier" />
-        <activity android:name=".VueFloreModifier"></activity>
+        <activity android:name=".VueFloreModifier" />
+        <activity android:name=".VueFauneAjouter" />
+        <activity android:name=".VueFloreAjouter" />
     </application>
 
 </manifest>

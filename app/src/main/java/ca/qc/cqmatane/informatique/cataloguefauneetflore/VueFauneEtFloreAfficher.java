@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TabHost;
@@ -59,6 +60,7 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
                 startActivity(intentionNaviguerModifierFaune);
             }
         });
+
     }
 
     private void creerTab() {
@@ -101,6 +103,16 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
                 new int[] {R.id.affichage_nom, R.id.affichage_nom_scientifique,  R.id.affichage_lieu});
 
         affichage_liste_espece_flore.setAdapter(adapteurVueListeRendezVous);
+    }
+
+    public void actionAjouterUneFaune(View vue){
+        Intent intentionNaviguerAjouterFaune = new Intent(VueFauneEtFloreAfficher.this, VueFauneAjouter.class);
+        startActivity(intentionNaviguerAjouterFaune);
+    }
+
+    public void actionAjouterUneFlore(View vue){
+        Intent intentionNaviguerAjouterFlore = new Intent(VueFauneEtFloreAfficher.this, VueFloreAjouter.class);
+        startActivity(intentionNaviguerAjouterFlore);
     }
 
     @Override

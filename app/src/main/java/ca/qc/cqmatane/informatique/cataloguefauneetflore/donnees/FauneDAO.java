@@ -53,6 +53,11 @@ public class FauneDAO {
         return listeFaune;
     }
 
+    public void ajouterFaune(Faune faune){
+        String SQL_UPDATE = "INSERT INTO faune (nom, nomScientifique, lieu, type, population) VALUES ('" + faune.getNom() + "','" + faune.getNomScientifique() + "','" + faune.getLieu() + "','" + faune.getType() + "'," + faune.getPopulation() +")";
+        accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
+    }
+
     public void modifierFaune(Faune faune) {
         String SQL_UPDATE = "UPDATE faune set " +
                 "nom = '" + faune.getNom() + "', " +
