@@ -8,12 +8,12 @@ import java.util.HashMap;
 
 public class Flore extends Espece{
 
-    public Flore(String nom, String nomScientifique, String lieu) {
-        super(nom, nomScientifique, lieu);
+    public Flore(String nom, String nomScientifique, String lieu, String URL) {
+        super(nom, nomScientifique, lieu, URL);
     }
 
-    public Flore(int id, String nom, String nomScientifique, String lieu) {
-        super(id, nom, nomScientifique, lieu);
+    public Flore(int id, String nom, String nomScientifique, String lieu, String URL) {
+        super(id, nom, nomScientifique, lieu, URL);
     }
 
     public HashMap<String, String> exporterHashMap() {

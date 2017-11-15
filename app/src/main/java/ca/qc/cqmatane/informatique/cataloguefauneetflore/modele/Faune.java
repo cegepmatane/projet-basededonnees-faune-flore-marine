@@ -11,14 +11,14 @@ public class Faune extends Espece {
     private String type;
     private int population;
 
-    public Faune(String nom, String nomScientifique, String lieu, String type, int population) {
-        super(nom, nomScientifique, lieu);
+    public Faune(String nom, String nomScientifique, String lieu, String type, int population, String URL) {
+        super(nom, nomScientifique, lieu, URL);
         this.type = type;
         this.population = population;
     }
 
-    public Faune(int id, String nom, String nomScientifique, String lieu, String type, int population) {
-        super(id,nom, nomScientifique, lieu);
+    public Faune(int id, String nom, String nomScientifique, String lieu, String type, int population, String URL) {
+        super(id,nom, nomScientifique, lieu, URL);
         this.type = type;
         this.population = population;
     }

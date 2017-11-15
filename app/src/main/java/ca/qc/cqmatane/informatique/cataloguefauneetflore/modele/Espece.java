@@ -9,13 +9,13 @@ public class Espece {
     protected String lieu;
     protected String url;
 
-    public Espece(String nom, String nomScientifique, String lieu) {
+    public Espece(String nom, String nomScientifique, String lieu, String URL) {
         this.nom = nom;
         this.nomScientifique = nomScientifique;
         this.lieu = lieu;
     }
 
-    public Espece(int id,String nom, String nomScientifique, String lieu) {
+    public Espece(int id,String nom, String nomScientifique, String lieu, String URL) {
         this.nom = nom;
         this.nomScientifique = nomScientifique;
         this.lieu = lieu;
