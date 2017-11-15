@@ -2,15 +2,12 @@ package ca.qc.cqmatane.informatique.cataloguefauneetflore.modele;
 
 import java.util.HashMap;
 
-/**
- * Created by Maxime on 20/09/2017.
- */
-
 public class Espece {
     protected int id;
     protected String nom;
     protected String nomScientifique;
     protected String lieu;
+    protected String url;
 
     public Espece(String nom, String nomScientifique, String lieu) {
         this.nom = nom;
@@ -62,5 +59,11 @@ public class Espece {
         return id;
     }
 
+    public String getUrl() {
+        return url;
+    }
 
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }
