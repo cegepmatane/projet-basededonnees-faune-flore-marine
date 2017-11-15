@@ -16,6 +16,7 @@ public class VueFloreAjouter extends AppCompatActivity {
     private EditText champNomFloreAjouter;
     private EditText champNomScientifiqueFloreAjouter;
     private EditText champLieuFloreAjouter;
+    private EditText champURLFloreAjouter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +30,14 @@ public class VueFloreAjouter extends AppCompatActivity {
         champNomFloreAjouter = (EditText)findViewById(R.id.champ_nom_flore_ajouter);
         champNomScientifiqueFloreAjouter = (EditText)findViewById(R.id.champ_nom_scientifique_flore_ajouter);
         champLieuFloreAjouter = (EditText)findViewById(R.id.champ_lieu_flore_ajouter);
+        champURLFloreAjouter = (EditText)findViewById(R.id.champ_URL_flore_ajouter);
 
-        flore = new Flore(champNomFloreAjouter.getText().toString(),champNomScientifiqueFloreAjouter.getText().toString(),champLieuFloreAjouter.getText().toString());
+        flore = new Flore(
+                champNomFloreAjouter.getText().toString(),
+                champNomScientifiqueFloreAjouter.getText().toString(),
+                champLieuFloreAjouter.getText().toString(),
+                champURLFloreAjouter.getText().toString()
+        );
 
         accesseurFlore.ajouterFlore(flore);
         finish();

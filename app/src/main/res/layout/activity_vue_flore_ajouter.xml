@@ -45,6 +45,14 @@
             android:hint="Lieu"
             android:inputType="textPersonName" />
 
+        <EditText
+            android:id="@+id/champ_URL_flore_ajouter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="URL"
+            android:inputType="textUri" />
+
         <Button
             android:id="@+id/action_ajouter_une_flore"
             android:layout_width="match_parent"
