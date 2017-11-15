@@ -13,8 +13,8 @@ public class BaseDeDonnee extends SQLiteOpenHelper {
         return instance;
     }
 
-    private static String REQUETE_CREATION_TABLE_FAUNE = "CREATE TABLE IF NOT EXISTS faune(idFaune INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
-    private static String REQUETE_CREATION_TABLE_FLAURE = "CREATE TABLE IF NOT EXISTS flore(idFlore INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT)";
+    private static String REQUETE_CREATION_TABLE_FAUNE = "CREATE TABLE IF NOT EXISTS faune(idFaune INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT, urlImage TEXT)";
+    private static String REQUETE_CREATION_TABLE_FLAURE = "CREATE TABLE IF NOT EXISTS flore(idFlore INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, urlImage TEXT)";
 
     public static BaseDeDonnee getInstance() {
         return instance;
