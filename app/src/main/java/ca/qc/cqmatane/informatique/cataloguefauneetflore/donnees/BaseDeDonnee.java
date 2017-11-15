@@ -13,6 +13,9 @@ public class BaseDeDonnee extends SQLiteOpenHelper {
         return instance;
     }
 
+    private static String REQUETE_CREATION_TABLE_FAUNE = "CREATE TABLE IF NOT EXISTS faune(idFaune INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
+    private static String REQUETE_CREATION_TABLE_FLAURE = "CREATE TABLE IF NOT EXISTS flore(idFlore INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT)";
+
     public static BaseDeDonnee getInstance() {
         return instance;
     }
@@ -23,26 +26,20 @@ public class BaseDeDonnee extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS faune(idFaune INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
-        db.execSQL(CREATE_TABLE);
-        CREATE_TABLE = "CREATE TABLE IF NOT EXISTS flore(idFlore INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT)";
-        db.execSQL(CREATE_TABLE);
+        db.execSQL(REQUETE_CREATION_TABLE_FAUNE);
+        db.execSQL(REQUETE_CREATION_TABLE_FLAURE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
-        String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS faune(idFaune INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
-        db.execSQL(CREATE_TABLE);
-        CREATE_TABLE = "CREATE TABLE IF NOT EXISTS flore(idFlore INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT)";
-        db.execSQL(CREATE_TABLE);
+        db.execSQL(REQUETE_CREATION_TABLE_FAUNE);
+        db.execSQL(REQUETE_CREATION_TABLE_FLAURE);
     }
 
     @Override
     public void onOpen(SQLiteDatabase db) {
-        String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS faune(idFaune INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT, type TEXT, population TEXT)";
-        db.execSQL(CREATE_TABLE);
-        CREATE_TABLE = "CREATE TABLE IF NOT EXISTS flore(idFlore INTEGER PRIMARY KEY, nom TEXT, nomScientifique TEXT, lieu TEXT)";
-        db.execSQL(CREATE_TABLE);
+        db.execSQL(REQUETE_CREATION_TABLE_FAUNE);
+        db.execSQL(REQUETE_CREATION_TABLE_FLAURE);
     }
 
 }
