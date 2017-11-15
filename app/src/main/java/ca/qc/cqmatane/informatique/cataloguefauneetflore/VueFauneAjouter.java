@@ -18,6 +18,7 @@ public class VueFauneAjouter extends AppCompatActivity {
     private EditText champLieuFauneAjouter;
     private EditText champTypeFauneAjouter;
     private EditText champPopulationFauneAjouter;
+    private EditText champURLFauneAjouter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +34,16 @@ public class VueFauneAjouter extends AppCompatActivity {
         champLieuFauneAjouter = (EditText)findViewById(R.id.champ_lieu_faune_ajouter);
         champTypeFauneAjouter = (EditText)findViewById(R.id.champ_type_faune_ajouter);
         champPopulationFauneAjouter = (EditText)findViewById(R.id.champ_population_faune_ajouter);
+        champURLFauneAjouter = (EditText)findViewById(R.id.champ_url_faune_ajouter);
 
-        faune = new Faune(champNomFauneAjouter.getText().toString(),champNomScientifiqueFauneAjouter.getText().toString(),champLieuFauneAjouter.getText().toString(),
-                champTypeFauneAjouter.getText().toString(),Integer.parseInt(champPopulationFauneAjouter.getText().toString()));
+        faune = new Faune(
+                champNomFauneAjouter.getText().toString(),
+                champNomScientifiqueFauneAjouter.getText().toString(),
+                champLieuFauneAjouter.getText().toString(),
+                champTypeFauneAjouter.getText().toString(),
+                Integer.parseInt(champPopulationFauneAjouter.getText().toString()),
+                champURLFauneAjouter.getText().toString()
+        );
 
         accesseurFaune.ajouterFaune(faune);
         finish();
