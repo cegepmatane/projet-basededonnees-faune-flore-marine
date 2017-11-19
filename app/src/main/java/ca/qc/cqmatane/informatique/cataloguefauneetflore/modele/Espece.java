@@ -13,6 +13,7 @@ public class Espece {
         this.nom = nom;
         this.nomScientifique = nomScientifique;
         this.lieu = lieu;
+        this.url = URL;
     }
 
     public Espece(int id,String nom, String nomScientifique, String lieu, String URL) {
@@ -20,6 +21,7 @@ public class Espece {
         this.nomScientifique = nomScientifique;
         this.lieu = lieu;
         this.id = id;
+        this.url = URL;
     }
 
     public String getNom() {
