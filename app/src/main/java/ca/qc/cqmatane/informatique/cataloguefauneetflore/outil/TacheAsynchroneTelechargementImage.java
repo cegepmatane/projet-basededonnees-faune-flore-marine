@@ -62,13 +62,13 @@ public class TacheAsynchroneTelechargementImage extends AsyncTask<String, Void, 
             }
         }
         catch(Exception e){
-            connexionUrl.disconnect();
+            if(connexionUrl != null)
+                connexionUrl.disconnect();
             Log.w("TelechargementImage", "Erreur lors du telechargement de l\'image depuis " + url);
         }
         finally {
-            if(connexionUrl != null){
+            if(connexionUrl != null)
                 connexionUrl.disconnect();
-            }
         }
         return null;
     }
