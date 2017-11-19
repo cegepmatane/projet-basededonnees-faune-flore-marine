@@ -39,6 +39,7 @@ public class FauneDAO {
         int indexLieu = curseurFaune.getColumnIndex("lieu");
         int indexType = curseurFaune.getColumnIndex("type");
         int indexPopulation = curseurFaune.getColumnIndex("population");
+        int indexUrlImage = curseurFaune.getColumnIndex("urlImage");
 
         System.out.println(curseurFaune.moveToFirst());
         for(curseurFaune.moveToFirst(); !curseurFaune.isAfterLast(); curseurFaune.moveToNext()) {
@@ -48,7 +49,8 @@ public class FauneDAO {
             String lieu = curseurFaune.getString(indexLieu);
             String type = curseurFaune.getString(indexType);
             int population = curseurFaune.getInt(indexPopulation);
-            listeFaune.add(new Faune(id,nom,nomScientifique,lieu,type,population));
+            String urlImage = curseurFaune.getString(indexUrlImage);
+            listeFaune.add(new Faune(id,nom,nomScientifique,lieu,type,population,urlImage));
         }
         return listeFaune;
     }

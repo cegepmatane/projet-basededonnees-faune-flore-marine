@@ -10,10 +10,6 @@ import java.util.List;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Faune;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Flore;
 
-/**
- * Created by Maxime on 20/09/2017.
- */
-
 public class FloreDAO {
 
     private static FloreDAO instance;
@@ -39,13 +35,15 @@ public class FloreDAO {
         int indexNom = curseurFlore.getColumnIndex("nom");
         int indexNomScientifique = curseurFlore.getColumnIndex("nomScientifique");
         int indexLieu = curseurFlore.getColumnIndex("lieu");
+        int indexUrlImage = curseurFlore.getColumnIndex("urlImage");
 
         for(curseurFlore.moveToFirst(); !curseurFlore.isAfterLast(); curseurFlore.moveToNext()) {
             int id = curseurFlore.getInt(indexId);
             String nom = curseurFlore.getString(indexNom);
             String nomScientifique = curseurFlore.getString(indexNomScientifique);
             String lieu = curseurFlore.getString(indexLieu);
-            listeFlore.add(new Flore(id,nom,nomScientifique,lieu));
+            String urlImage = curseurFlore.getString(indexUrlImage);
+            listeFlore.add(new Flore(id,nom,nomScientifique,lieu,urlImage));
         }
         return listeFlore;
     }
