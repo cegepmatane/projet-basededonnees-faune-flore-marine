@@ -3,11 +3,13 @@ package ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees;
 import android.database.Cursor;
 import android.widget.ListView;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Faune;
+import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Flore;
 
 /**
  * Created by Maxime on 20/09/2017.
@@ -52,11 +54,13 @@ public class FauneDAO {
             String urlImage = curseurFaune.getString(indexUrlImage);
             listeFaune.add(new Faune(id,nom,nomScientifique,lieu,type,population,urlImage));
         }
+        listeFaune.add(new Faune(1850, "Biche", "NomScientifique", "Champ", "Type", 1, "http://www.les-snats.com/wp-content/uploads/2015/07/2-faune-mamiferes.jpg"));
+        listeFaune.add(new Faune(1596, "Ours", "NomScientifique", "Rivière", "Type", 2, "http://nature.ca/sites/default/files/_images/2-plan_planifiez/2011/insitu/pv_grizzly_lg.jpg"));
         return listeFaune;
     }
 
     public void ajouterFaune(Faune faune){
-        String SQL_UPDATE = "INSERT INTO faune (nom, nomScientifique, lieu, type, population) VALUES ('" + faune.getNom() + "','" + faune.getNomScientifique() + "','" + faune.getLieu() + "','" + faune.getType() + "'," + faune.getPopulation() +")";
+        String SQL_UPDATE = "INSERT INTO faune (nom, nomScientifique, lieu, type, population, urlImage) VALUES ('" + faune.getNom() + "','" + faune.getNomScientifique() + "','" + faune.getLieu() + "','" + faune.getType() + "'," + faune.getPopulation() + ",'" + faune.getUrl() + "')";
         accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
     }
 

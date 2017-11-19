@@ -45,11 +45,13 @@ public class FloreDAO {
             String urlImage = curseurFlore.getString(indexUrlImage);
             listeFlore.add(new Flore(id,nom,nomScientifique,lieu,urlImage));
         }
+        listeFlore.add(new Flore(1850, "Tulipe", "NomScientifique", "Champ", "http://www.tourisme.gouv.km/images/flore-terrestre/flore-terrestre1_g.jpg"));
+        listeFlore.add(new Flore(1596, "Flore de grèce", "NomScientifique", "Champ", "http://grece.destilino.com/photos/Grece-Flore-11.jpg"));
         return listeFlore;
     }
 
     public void ajouterFlore(Flore flore) {
-        String SQL_UPDATE = "INSERT INTO flore (nom, nomScientifique, lieu) VALUES ('" + flore.getNom() + "','" + flore.getNomScientifique() + "','" + flore.getLieu() + "')";
+        String SQL_UPDATE = "INSERT INTO flore (nom, nomScientifique, lieu, urlImage) VALUES ('" + flore.getNom() + "','" + flore.getNomScientifique() + "','" + flore.getLieu() + "','" + flore.getUrl() + "')";
         accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
     }
 
