@@ -11,7 +11,7 @@
         android:layout_height="75dp"
         android:layout_weight="1"
         android:scaleType="fitXY"
-        app:srcCompat="@android:drawable/presence_offline" />
+        app:srcCompat="@android:drawable/presence_away" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,14 +20,15 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/affichage_lieu"
+            android:id="@+id/affichage_nom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Lieu :"
+            android:text="Nom : "
             android:textAlignment="textStart"
             android:textSize="16dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Nom :" />
 
         <TextView
             android:id="@+id/affichage_nom_scientifique"
@@ -40,15 +41,14 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/affichage_nom"
+            android:id="@+id/affichage_lieu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Nom : "
+            android:text="Lieu :"
             android:textAlignment="textStart"
             android:textSize="16dp"
-            android:textStyle="bold"
-            tools:text="Nom :" />
+            android:textStyle="bold" />
 
     </LinearLayout>
 
