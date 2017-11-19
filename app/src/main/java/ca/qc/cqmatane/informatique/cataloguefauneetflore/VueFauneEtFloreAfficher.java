@@ -19,6 +19,7 @@ import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FauneDAO;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FloreDAO;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Espece;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Faune;
+import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Flore;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.outil.AdapteurListeFauneEtFlore;
 
 public class VueFauneEtFloreAfficher extends AppCompatActivity {
@@ -91,15 +92,8 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
     }
 
     private void creerListViewFlore() {
-        List<HashMap<String, String>> listeFlore = accesseurFlore.listerLaFauneEnHashmap();
-        SimpleAdapter adapteurVueListeRendezVous = new SimpleAdapter(
-                this,
-                listeFlore,
-                R.layout.faune_et_flore_afficher_layout_custom_element_liste,
-                new String[] {"Nom", "NomScientifique", "Lieu"},
-                new int[] {R.id.affichage_nom, R.id.affichage_nom_scientifique,  R.id.affichage_lieu});
-
-        affichage_liste_espece_flore.setAdapter(adapteurVueListeRendezVous);
+        List<Flore> listeFlore = accesseurFlore.listerTouteLaFlore();
+        affichage_liste_espece_flore.setAdapter(new AdapteurListeFauneEtFlore(this,(ArrayList) listeFlore));
     }
 
     public void actionAjouterUneFaune(View vue){
