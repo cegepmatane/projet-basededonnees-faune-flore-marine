@@ -55,7 +55,7 @@ public class AdapteurListeFauneEtFlore extends BaseAdapter {
         }
 
         Espece itemEspece = (Espece) listeDonnees.get(position);
-        if(conteneur.affichageImage != null){
+        if(conteneur.affichageImage != null && itemEspece.getUrl() != null){
             new TacheAsynchroneTelechargementImage(conteneur.affichageImage).execute(itemEspece.getUrl());
         }
         conteneur.affichageNom.setText(itemEspece.getNom());
