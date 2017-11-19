@@ -10,12 +10,16 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TabHost;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.BaseDeDonnee;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FauneDAO;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FloreDAO;
+import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Espece;
+import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Faune;
+import ca.qc.cqmatane.informatique.cataloguefauneetflore.outil.AdapteurListeFauneEtFlore;
 
 public class VueFauneEtFloreAfficher extends AppCompatActivity {
     private TabHost tab_host_faune_et_flore;
@@ -82,15 +86,8 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
     }
 
     private void creerListViewFaune() {
-        List<HashMap<String, String>> listeFaune = accesseurFaune.listerLaFauneEnHashmap();
-        SimpleAdapter adapteurVueListeRendezVous = new SimpleAdapter(
-                this,
-                listeFaune,
-                R.layout.faune_et_flore_afficher_layout_custom_element_liste,
-                new String[] {"Nom", "NomScientifique", "Lieu"},
-                new int[] {R.id.affichage_nom, R.id.affichage_nom_scientifique,  R.id.affichage_lieu});
-
-        affichage_liste_espece_faune.setAdapter(adapteurVueListeRendezVous);
+        List<Faune> listeFaune = accesseurFaune.listerTouteLaFaune();
+        affichage_liste_espece_faune.setAdapter(new AdapteurListeFauneEtFlore(this,(ArrayList) listeFaune));
     }
 
     private void creerListViewFlore() {
