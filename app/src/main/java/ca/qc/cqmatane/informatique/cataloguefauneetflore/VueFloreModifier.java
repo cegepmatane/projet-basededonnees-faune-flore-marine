@@ -18,6 +18,7 @@ public class VueFloreModifier extends AppCompatActivity {
     private EditText champNomFloreModifier;
     private EditText champNomScientifiqueFloreModifier;
     private EditText champLieuFloreModifier;
+    private EditText champURLFloreModifier;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +33,19 @@ public class VueFloreModifier extends AppCompatActivity {
         champNomFloreModifier = (EditText)findViewById(R.id.champ_nom_flore_modifier);
         champNomScientifiqueFloreModifier = (EditText)findViewById(R.id.champ_nom_scientifique_flore_modifier);
         champLieuFloreModifier = (EditText)findViewById(R.id.champ_lieu_flore_modifier);
+        champURLFloreModifier = (EditText)findViewById(R.id.champ_url_flore_modifier);
 
         champNomFloreModifier.setText(flore.getNom());
         champNomScientifiqueFloreModifier.setText(flore.getNomScientifique());
         champLieuFloreModifier.setText(flore.getLieu());
+        champURLFloreModifier.setText(flore.getUrl());
     }
 
     public void actionModifierFlore(View vue){
         flore.setNom(champNomFloreModifier.getText().toString());
         flore.setNomScientifique(champNomScientifiqueFloreModifier.getText().toString());
         flore.setLieu(champLieuFloreModifier.getText().toString());
+        flore.setUrl(champURLFloreModifier.getText().toString());
         accesseurFlore.modifierFlore(flore);
         finish();
     }

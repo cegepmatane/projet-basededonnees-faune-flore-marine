@@ -19,6 +19,7 @@ public class VueFauneModifier extends AppCompatActivity {
     private EditText champLieuFauneModifier;
     private EditText champTypeFauneModifier;
     private EditText champPopulationFauneModifier;
+    private EditText champURLFauneModifier;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +36,14 @@ public class VueFauneModifier extends AppCompatActivity {
         champLieuFauneModifier = (EditText)findViewById(R.id.champ_lieu_faune_modifier);
         champTypeFauneModifier = (EditText)findViewById(R.id.champ_type_faune_modifier);
         champPopulationFauneModifier = (EditText)findViewById(R.id.champ_population_faune_modifier);
+        champURLFauneModifier = (EditText)findViewById(R.id.champ_url_faune_modifier);
 
         champNomFauneModifier.setText(faune.getNom());
         champNomScientifiqueFauneModifier.setText(faune.getNomScientifique());
         champLieuFauneModifier.setText(faune.getLieu());
         champTypeFauneModifier.setText(faune.getType());
         champPopulationFauneModifier.setText(faune.getPopulation()+"");
+        champURLFauneModifier.setText(faune.getUrl());
     }
 
     public void actionModifierFaune(View vue){
@@ -49,6 +52,7 @@ public class VueFauneModifier extends AppCompatActivity {
         faune.setLieu(champLieuFauneModifier.getText().toString());
         faune.setType(champTypeFauneModifier.getText().toString());
         faune.setPopulation(Integer.parseInt(champPopulationFauneModifier.getText().toString()));
+        faune.setUrl(champURLFauneModifier.getText().toString());
         accesseurFaune.modifierFaune(faune);
         finish();
     }
