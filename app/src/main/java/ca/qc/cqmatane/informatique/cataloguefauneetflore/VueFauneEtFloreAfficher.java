@@ -45,10 +45,10 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int positionDansAdapteur, long positionItem) {
                 ListView vueListeFlore = (ListView) view.getParent();
 
-                HashMap<String, String> flore = (HashMap<String, String>) vueListeFlore.getItemAtPosition((int) positionItem);
+                int idFlore = ((Espece)vueListeFlore.getAdapter().getItem((int) positionItem)).getId();
 
                 Intent intentionNaviguerModifierFlore = new Intent(VueFauneEtFloreAfficher.this, VueFloreModifier.class);
-                intentionNaviguerModifierFlore.putExtra("Id", flore.get("Id"));
+                intentionNaviguerModifierFlore.putExtra("Id", (idFlore + ""));
                 startActivity(intentionNaviguerModifierFlore);
             }
         });
@@ -58,10 +58,10 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int positionDansAdapteur, long positionItem) {
                 ListView vueListeFaune = (ListView) view.getParent();
 
-                HashMap<String, String> faune = (HashMap<String, String>) vueListeFaune.getItemAtPosition((int) positionItem);
+                int idFaune = ((Espece)vueListeFaune.getAdapter().getItem((int) positionItem)).getId();
 
                 Intent intentionNaviguerModifierFaune = new Intent(VueFauneEtFloreAfficher.this, VueFauneModifier.class);
-                intentionNaviguerModifierFaune.putExtra("Id", faune.get("Id"));
+                intentionNaviguerModifierFaune.putExtra("Id", (idFaune + ""));
                 startActivity(intentionNaviguerModifierFaune);
             }
         });
