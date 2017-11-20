@@ -61,6 +61,14 @@
             android:hint="Population"
             android:inputType="textPersonName" />
 
+        <EditText
+            android:id="@+id/champ_url_faune_modifier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="URL"
+            android:inputType="textPersonName" />
+
         <Button
             android:id="@+id/action_modifier_flore"
             android:layout_width="match_parent"
