@@ -1,4 +1,4 @@
-package ca.qc.cqmatane.informatique.cataloguefauneetflore;
+package ca.qc.cqmatane.informatique.cataloguefauneetflore.vue;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import ca.qc.cqmatane.informatique.cataloguefauneetflore.R;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FauneDAO;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Faune;
 
@@ -54,12 +55,12 @@ public class VueFauneModifier extends AppCompatActivity {
         faune.setPopulation(Integer.parseInt(champPopulationFauneModifier.getText().toString()));
         faune.setUrl(champURLFauneModifier.getText().toString());
         accesseurFaune.modifierFaune(faune);
-        finish();
+        this.finish();
     }
 
     public void actionSupprimerFaune(View vue)
     {
         accesseurFaune.supprimerFaune(faune);
-        finish();
+        this.finish();
     }
 }

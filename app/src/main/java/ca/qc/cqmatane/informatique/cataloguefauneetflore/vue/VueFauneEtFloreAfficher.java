@@ -1,19 +1,18 @@
-package ca.qc.cqmatane.informatique.cataloguefauneetflore;
+package ca.qc.cqmatane.informatique.cataloguefauneetflore.vue;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TabHost;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
+import ca.qc.cqmatane.informatique.cataloguefauneetflore.R;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.BaseDeDonnee;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FauneDAO;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FloreDAO;
@@ -28,6 +27,11 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
     private ListView affichage_liste_espece_flore;
     private FauneDAO accesseurFaune;
     private FloreDAO accesseurFlore;
+
+    static final public int ACTIVITE_MODIFIER_FAUNE = 1;
+    static final public int ACTIVITE_MODIFIER_FLORE = 2;
+    static final public int ACTIVITE_AJOUTER_FAUNE = 3;
+    static final public int ACTIVITE_AJOUTER_FLORE = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +53,8 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
 
                 Intent intentionNaviguerModifierFlore = new Intent(VueFauneEtFloreAfficher.this, VueFloreModifier.class);
                 intentionNaviguerModifierFlore.putExtra("Id", (idFlore + ""));
-                startActivity(intentionNaviguerModifierFlore);
+                //startActivity(intentionNaviguerModifierFlore);
+                startActivityForResult(intentionNaviguerModifierFlore, ACTIVITE_MODIFIER_FLORE);
             }
         });
 
@@ -62,10 +67,39 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
 
                 Intent intentionNaviguerModifierFaune = new Intent(VueFauneEtFloreAfficher.this, VueFauneModifier.class);
                 intentionNaviguerModifierFaune.putExtra("Id", (idFaune + ""));
-                startActivity(intentionNaviguerModifierFaune);
+                //startActivity(intentionNaviguerModifierFaune);
+                startActivityForResult(intentionNaviguerModifierFaune, ACTIVITE_MODIFIER_FAUNE);
             }
         });
 
+    }
+
+    protected void onActivityResult(int activite, int resultat, Intent donnees)
+    {
+        accesseurFaune = FauneDAO.getInstance();
+        accesseurFlore = FloreDAO.getInstance();
+        affichage_liste_espece_faune = (ListView) findViewById(R.id.affichage_liste_espece_faune);
+        affichage_liste_espece_flore = (ListView) findViewById(R.id.affichage_liste_espece_flore);
+
+        switch (activite)
+        {
+            case ACTIVITE_MODIFIER_FAUNE:
+                creerListViewFaune();
+                creerListViewFlore();
+                break;
+            case ACTIVITE_MODIFIER_FLORE:
+                creerListViewFaune();
+                creerListViewFlore();
+                break;
+            case ACTIVITE_AJOUTER_FAUNE:
+                creerListViewFaune();
+                creerListViewFlore();
+                break;
+            case ACTIVITE_AJOUTER_FLORE:
+                creerListViewFaune();
+                creerListViewFlore();
+                break;
+        }
     }
 
     private void creerTab() {
@@ -97,13 +131,18 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
     }
 
     public void actionAjouterUneFaune(View vue){
+        Log.d("test", "actionAjouterUneFaune");
         Intent intentionNaviguerAjouterFaune = new Intent(VueFauneEtFloreAfficher.this, VueFauneAjouter.class);
-        startActivity(intentionNaviguerAjouterFaune);
+        //startActivity(intentionNaviguerAjouterFaune);
+        startActivityForResult(intentionNaviguerAjouterFaune, ACTIVITE_AJOUTER_FAUNE);
     }
 
     public void actionAjouterUneFlore(View vue){
+        Log.d("test", "actionAjouterUneFlore");
+
         Intent intentionNaviguerAjouterFlore = new Intent(VueFauneEtFloreAfficher.this, VueFloreAjouter.class);
-        startActivity(intentionNaviguerAjouterFlore);
+        //startActivity(intentionNaviguerAjouterFlore);
+        startActivityForResult(intentionNaviguerAjouterFlore, ACTIVITE_AJOUTER_FLORE);
     }
 
     @Override

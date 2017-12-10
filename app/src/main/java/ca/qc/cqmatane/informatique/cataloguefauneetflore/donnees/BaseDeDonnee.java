@@ -25,21 +25,22 @@ public class BaseDeDonnee extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void onCreate(SQLiteDatabase db)
+    {
         db.execSQL(REQUETE_CREATION_TABLE_FAUNE);
         db.execSQL(REQUETE_CREATION_TABLE_FLAURE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
-        db.execSQL(REQUETE_CREATION_TABLE_FAUNE);
-        db.execSQL(REQUETE_CREATION_TABLE_FLAURE);
+        //db.execSQL(REQUETE_CREATION_TABLE_FAUNE);
+        //db.execSQL(REQUETE_CREATION_TABLE_FLAURE);
     }
 
     @Override
     public void onOpen(SQLiteDatabase db) {
-        db.execSQL(REQUETE_CREATION_TABLE_FAUNE);
-        db.execSQL(REQUETE_CREATION_TABLE_FLAURE);
+        //db.execSQL(REQUETE_CREATION_TABLE_FAUNE);
+        //db.execSQL(REQUETE_CREATION_TABLE_FLAURE);
     }
 
 }

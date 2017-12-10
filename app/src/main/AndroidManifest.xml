@@ -11,17 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VueFauneEtFloreAfficher">
+        <activity android:name=".vue.VueFauneEtFloreAfficher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VueFauneModifier" />
-        <activity android:name=".VueFloreModifier" />
-        <activity android:name=".VueFauneAjouter" />
-        <activity android:name=".VueFloreAjouter" />
+        <activity android:name=".vue.VueFauneModifier" />
+        <activity android:name=".vue.VueFloreModifier" />
+        <activity android:name=".vue.VueFauneAjouter" />
+        <activity android:name=".vue.VueFloreAjouter" />
     </application>
 
 </manifest>

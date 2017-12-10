@@ -1,4 +1,4 @@
-package ca.qc.cqmatane.informatique.cataloguefauneetflore;
+package ca.qc.cqmatane.informatique.cataloguefauneetflore.vue;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import ca.qc.cqmatane.informatique.cataloguefauneetflore.R;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FloreDAO;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Flore;
 
@@ -47,12 +48,12 @@ public class VueFloreModifier extends AppCompatActivity {
         flore.setLieu(champLieuFloreModifier.getText().toString());
         flore.setUrl(champURLFloreModifier.getText().toString());
         accesseurFlore.modifierFlore(flore);
-        finish();
+        this.finish();
     }
 
     public void actionSupprimerFlore(View vue)
     {
         accesseurFlore.supprimerFlore(flore);
-        finish();
+        this.finish();
     }
 }
