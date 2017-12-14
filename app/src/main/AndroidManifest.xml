@@ -11,17 +11,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".vues.VueFauneEtFloreAfficher">
+=======
+        <activity android:name=".vue.VueFauneEtFloreAfficher">
+>>>>>>> 76b55be7ff92e7870dbf140760c9cb7614ec77c0
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".vues.VueFauneModifier" />
         <activity android:name=".vues.VueFloreModifier" />
         <activity android:name=".vues.VueFauneAjouter" />
         <activity android:name=".vues.VueFloreAjouter" />
+=======
+        <activity android:name=".vue.VueFauneModifier" />
+        <activity android:name=".vue.VueFloreModifier" />
+        <activity android:name=".vue.VueFauneAjouter" />
+        <activity android:name=".vue.VueFloreAjouter" />
+>>>>>>> 76b55be7ff92e7870dbf140760c9cb7614ec77c0
     </application>
 
 </manifest>

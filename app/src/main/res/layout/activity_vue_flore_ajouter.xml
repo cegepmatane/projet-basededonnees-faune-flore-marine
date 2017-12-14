@@ -5,7 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+<<<<<<< HEAD
     tools:context="ca.qc.cqmatane.informatique.cataloguefauneetflore.vues.VueFloreAjouter">
+=======
+    tools:context="ca.qc.cqmatane.informatique.cataloguefauneetflore.vue.VueFloreAjouter">
+>>>>>>> 76b55be7ff92e7870dbf140760c9cb7614ec77c0
 
     <TextView
         android:id="@+id/affichage_titre"
