@@ -54,6 +54,8 @@ public class FauneDAO {
             String urlImage = curseurFaune.getString(indexUrlImage);
             listeFaune.add(new Faune(id,nom,nomScientifique,lieu,type,population,urlImage));
         }
+        listeFaune.add(new Faune(1850, "Biche", "NomScientifique", "Champ", "Type", 1, "http://www.les-snats.com/wp-content/uploads/2015/07/2-faune-mamiferes.jpg"));
+        listeFaune.add(new Faune(1596, "Ours", "NomScientifique", "Rivière", "Type", 2, "http://nature.ca/sites/default/files/_images/2-plan_planifiez/2011/insitu/pv_grizzly_lg.jpg"));
         return listeFaune;
     }
 
@@ -68,8 +70,7 @@ public class FauneDAO {
                 "nomScientifique = '" + faune.getNomScientifique() + "', " +
                 "lieu = '" + faune.getLieu() + "', " +
                 "type = '" + faune.getType() + "', " +
-                "population = " + faune.getPopulation() + ", " +
-                "urlImage = '" + faune.getUrl() + "' " +
+                "population=" + faune.getPopulation() +
                 " WHERE idFaune = " + faune.getId();
         accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
     }

@@ -45,6 +45,8 @@ public class FloreDAO {
             String urlImage = curseurFlore.getString(indexUrlImage);
             listeFlore.add(new Flore(id,nom,nomScientifique,lieu,urlImage));
         }
+        listeFlore.add(new Flore(1850, "Tulipe", "NomScientifique", "Champ", "http://www.tourisme.gouv.km/images/flore-terrestre/flore-terrestre1_g.jpg"));
+        listeFlore.add(new Flore(1596, "Flore de grèce", "NomScientifique", "Champ", "http://grece.destilino.com/photos/Grece-Flore-11.jpg"));
         return listeFlore;
     }
 
@@ -58,14 +60,15 @@ public class FloreDAO {
         String SQL_UPDATE = "UPDATE flore set " +
                 "nom = '" + flore.getNom() + "', " +
                 "nomScientifique = '" + flore.getNomScientifique() + "', " +
-                "lieu = '" + flore.getLieu() + "', " +
-                "urlImage = '" + flore.getUrl() + "' " +
-                " WHERE idFlore = " + flore.getId();
+                "lieu = '" + flore.getLieu()+"'" +
+                " WHERE idFlore = " + flore.getId();;
         accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
     }
 
-    public void supprimerFlore(Flore flore) {
+    public void supprimerFlore(Flore flore)
+    {
         String SQL_UPDATE = "DELETE FROM flore WHERE idFlore = " + flore.getId();
+
         accesseurBaseDeDonnee.getWritableDatabase().execSQL(SQL_UPDATE);
     }
 
