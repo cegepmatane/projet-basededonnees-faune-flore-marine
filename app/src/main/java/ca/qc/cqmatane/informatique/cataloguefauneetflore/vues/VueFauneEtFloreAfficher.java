@@ -12,17 +12,24 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TabHost;
 
+<<<<<<< HEAD:app/src/main/java/ca/qc/cqmatane/informatique/cataloguefauneetflore/vues/VueFauneEtFloreAfficher.java
 import java.util.ArrayList;
+=======
+import java.util.HashMap;
+>>>>>>> parent of 076e5b3... Utilisation du nouvel adapteur pour afficher la liste de la faune:app/src/main/java/ca/qc/cqmatane/informatique/cataloguefauneetflore/VueFauneEtFloreAfficher.java
 import java.util.List;
 
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.R;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.BaseDeDonnee;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FauneDAO;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FloreDAO;
+<<<<<<< HEAD:app/src/main/java/ca/qc/cqmatane/informatique/cataloguefauneetflore/vues/VueFauneEtFloreAfficher.java
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Espece;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Faune;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Flore;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.outil.AdapteurListeFauneEtFlore;
+=======
+>>>>>>> parent of 076e5b3... Utilisation du nouvel adapteur pour afficher la liste de la faune:app/src/main/java/ca/qc/cqmatane/informatique/cataloguefauneetflore/VueFauneEtFloreAfficher.java
 
 public class VueFauneEtFloreAfficher extends AppCompatActivity {
     private TabHost tab_host_faune_et_flore;
@@ -120,8 +127,15 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
     }
 
     private void creerListViewFaune() {
-        List<Faune> listeFaune = accesseurFaune.listerTouteLaFaune();
-        affichage_liste_espece_faune.setAdapter(new AdapteurListeFauneEtFlore(this,(ArrayList) listeFaune));
+        List<HashMap<String, String>> listeFaune = accesseurFaune.listerLaFauneEnHashmap();
+        SimpleAdapter adapteurVueListeRendezVous = new SimpleAdapter(
+                this,
+                listeFaune,
+                R.layout.faune_et_flore_afficher_layout_custom_element_liste,
+                new String[] {"Nom", "NomScientifique", "Lieu"},
+                new int[] {R.id.affichage_nom, R.id.affichage_nom_scientifique,  R.id.affichage_lieu});
+
+        affichage_liste_espece_faune.setAdapter(adapteurVueListeRendezVous);
     }
 
     private void creerListViewFlore() {
