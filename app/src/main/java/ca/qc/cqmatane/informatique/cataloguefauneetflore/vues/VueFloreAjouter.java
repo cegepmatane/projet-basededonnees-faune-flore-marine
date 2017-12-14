@@ -1,10 +1,11 @@
-package ca.qc.cqmatane.informatique.cataloguefauneetflore;
+package ca.qc.cqmatane.informatique.cataloguefauneetflore.vues;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import ca.qc.cqmatane.informatique.cataloguefauneetflore.R;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FloreDAO;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.modele.Flore;
 

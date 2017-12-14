@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="ca.qc.cqmatane.informatique.cataloguefauneetflore.VueFloreAjouter">
+    tools:context="ca.qc.cqmatane.informatique.cataloguefauneetflore.vues.VueFloreAjouter">
 
     <TextView
+        android:id="@+id/affichage_titre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"

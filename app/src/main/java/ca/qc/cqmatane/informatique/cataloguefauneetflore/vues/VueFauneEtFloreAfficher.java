@@ -1,19 +1,21 @@
-package ca.qc.cqmatane.informatique.cataloguefauneetflore;
+package ca.qc.cqmatane.informatique.cataloguefauneetflore.vues;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.provider.FontsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TabHost;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
+import ca.qc.cqmatane.informatique.cataloguefauneetflore.R;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.BaseDeDonnee;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FauneDAO;
 import ca.qc.cqmatane.informatique.cataloguefauneetflore.donnees.FloreDAO;
@@ -28,6 +30,7 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
     private ListView affichage_liste_espece_flore;
     private FauneDAO accesseurFaune;
     private FloreDAO accesseurFlore;
+    private Button action_ajouter_flore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,9 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
         accesseurFlore = FloreDAO.getInstance();
         affichage_liste_espece_faune = (ListView) findViewById(R.id.affichage_liste_espece_faune);
         affichage_liste_espece_flore = (ListView) findViewById(R.id.affichage_liste_espece_flore);
+        action_ajouter_flore = (Button) findViewById(R.id.action_ajouter_flore);
         creerTab();
+        ajouterFont();
 
         affichage_liste_espece_flore.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -66,6 +71,20 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
             }
         });
 
+        tab_host_faune_et_flore.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String s) {
+                if(tab_host_faune_et_flore.getCurrentTab()==0) {
+                    tab_host_faune_et_flore.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#0698D7"));
+                    tab_host_faune_et_flore.getTabWidget().getChildAt(tab_host_faune_et_flore.getCurrentTab()).setBackgroundColor(Color.parseColor("#003399")); //1st tab selected
+                }
+                else {
+                    tab_host_faune_et_flore.getTabWidget().getChildAt(0).setBackgroundColor(Color.parseColor("#0698D7"));
+                    tab_host_faune_et_flore.getTabWidget().getChildAt(tab_host_faune_et_flore.getCurrentTab()).setBackgroundColor(Color.parseColor("#003399")); //2nd tab selected
+                }
+            }
+        });
+
     }
 
     private void creerTab() {
@@ -82,8 +101,22 @@ public class VueFauneEtFloreAfficher extends AppCompatActivity {
         tabSpecFlore.setIndicator("Flore");
         tab_host_faune_et_flore.addTab(tabSpecFlore);
 
+        changerLesOngletDeCouleur();
+
         creerListViewFaune();
         creerListViewFlore();
+    }
+
+    private void changerLesOngletDeCouleur() {
+        tab_host_faune_et_flore.getTabWidget().getChildAt(1).setBackgroundColor(Color.BLUE);
+        for(int i=0;i<tab_host_faune_et_flore.getTabWidget().getChildCount();i++)
+            tab_host_faune_et_flore.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#0698D7"));
+    }
+
+    private void ajouterFont() {
+        String cheminPolice = "fonts/font1.ttf";
+        Typeface typePolice = Typeface.createFromAsset(getAssets(), cheminPolice);
+        action_ajouter_flore.setTypeface(typePolice);
     }
 
     private void creerListViewFaune() {
